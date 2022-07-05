@@ -1,0 +1,13 @@
+all: test
+
+OPT=-g -Wall
+
+
+%.o:	%.cpp %.cpp
+	g++ ${OPT} -c -o $@ $<
+
+testmats:	testmats.cpp Matrix.o Exception.o
+	g++ ${OPT} -o testmats testmats.cpp Matrix.o Exception.o
+
+clean:
+	rm -f *. *~ testmats
